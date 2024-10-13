@@ -1,49 +1,38 @@
 
 # 2024_fall Hackathon Project
 
-## Quick Links
-- [Hackathon Details](https://www.ohack.dev/hack/2024_fall)
-- [Team Slack Channel](https://opportunity-hack.slack.com/app_redirect?channel=oct-team)
-- [Nonprofit Partner](https://ohack.dev/nonprofit/fxa4e9jiAKfcWL3GojRF)
-- [Problem Statement](https://ohack.dev/project/3vOLKEFoQL67JQ3d2oAr)
-
 ## Creator
 @Reese Melton (on Slack)
 
 ## Team "One-Computer-Troopers-#2"
-- [Team Member 1](GitHub profile link)
+- [Reese Melton](https://github.com/R-Melton-OCT)
 - [Dylan Jenkins](https://github.com/DjTitan120)
 
 
+## Problem Statement
+Simple, User-Friendly Interface
+UI for uploading and managing files: An easy-to-use interface for uploading photos, adding tags manually and searching,
+
 ## Project Overview
-Brief description of your project and its goals.
+Our project was designed to help create a better user-friendly UI that is easy to use for uploading photos and audio clips. Our project also includes the ability for the user to 
 
 ## Tech Stack
-- Frontend: 
-- Backend: 
-- Database: 
-- APIs: 
-<!-- Add/modify as needed -->
-
+- Frontend: .html
+- Backend: none
+- Database: none
+- APIs: none
 
 ## Getting Started
-Instructions on how to set up and run your project locally.
+Download the .txt and .html files. The .html files can be opened through by clicking on them in File Explorer or other device equivalents. The .txt files allow the user to change and modify the base code to suit their specific needs. If a user changes the .txt files, they need to save the files as a .html file or refresh the current open .html files to access the new .html files.
 
-```bash
-# Example commands
-git clone [your-repo-link]
-cd [your-repo-name]
-npm install
-npm start
-```
+## Devpost Link
+https://devpost.com/software/hackathon-2024-team-17 
 
+## Demo Video
+https://www.youtube.com/watch?v=ifOBC9Pb1Qc  
 
-## Your next steps
-1. ✅ Add everyone on your team to your GitHub repo like [this video posted in our Slack channel](https://opportunity-hack.slack.com/archives/C1Q6YHXQU/p1605657678139600)
-2. ✅ Create your DevPost project [like this video](https://youtu.be/vCa7QFFthfU?si=bzMQ91d8j3ZkOD03)
-3. ✅ Use the [2024 DevPost](https://opportunity-hack-2024-arizona.devpost.com) to submit your project
-4. ✅ Your DevPost final submission demo video should be 4 minutes or less
-5. ✅ Review the judging criteria on DevPost
+## Important Information
+ 
 
 # What should your final Readme look like?
 Your readme should be a one-stop-shop for the judges to understand your project. It should include:
@@ -55,4 +44,6 @@ Your readme should be a one-stop-shop for the judges to understand your project.
 - Devpost link: https://devpost.com/software/hackathon-2024-team-17
 - Demo Video: https://www.youtube.com/watch?v=ifOBC9Pb1Qc
 - Any other information you think is important
+
+
 
