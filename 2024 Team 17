@@ -15,7 +15,7 @@ Simple, User-Friendly Interface
 UI for uploading and managing files: An easy-to-use interface for uploading photos, adding tags manually and searching,
 
 ## Project Overview
-Our project was designed to help create a better user-friendly UI that is easy to use for uploading photos and audio clips. Our project also includes the ability for the user to 
+Our project was designed to help create a better user-friendly UI that is easy to use for uploading photos and audio clips. Our project also includes the ability for the user to add tags to images or audio clips as well as the ability to search for an image or an audio clip based on its tags.
 
 ## Tech Stack
 - Frontend: .html, .txt
@@ -34,3 +34,4 @@ https://www.youtube.com/watch?v=ifOBC9Pb1Qc
 
 ## Important Information
 This is our first Hackathon and we were very pleased with how it went. All of the mentors and staff were polite, informative, and helpful. We had very little experience going in, but we are leaving knowing that we did the best that we could and that we learned so much along the way.
+
