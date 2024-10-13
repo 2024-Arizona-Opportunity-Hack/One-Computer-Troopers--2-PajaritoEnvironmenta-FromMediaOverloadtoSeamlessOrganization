@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pajarito Environmental Education Center Audio Submission</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Main column */
+.main {   
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width:100%;
+  }
+}
+
+.audio-card audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .tag-list {
+      margin-top: 10px;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Pajarito Environmental Education Center</h1>
+  <p>A website created by the One Computer Troopers.</p>
+</div>
+
+<div class="navbar">
+  <a href="file:///C:/Users/reese/OneDrive/Documents/ITT%20-%20111%20RDP%20and%20Files/Hackathon%20Pics.html">Pictures</a>
+  <a href="file:///C:/Users/reese/OneDrive/Documents/ITT%20-%20111%20RDP%20and%20Files/Hackathon%20Audio.html">Audio</a>
+  <a href="file:///C:/Users/reese/OneDrive/Documents/ITT%20-%20111%20RDP%20and%20Files/Hackathon%202.html">Home</a>
+  <a href="#" class="right">Settings</a>
+</div>
+
+  <div class="main">
+     <div class="container">
+    <h2 class="my-4">Upload an Audio File and Add Tags</h2>
+    
+    <!-- Audio Upload Section -->
+    <div class="mb-3">
+      <label for="audioUpload" class="form-label">Choose an audio file to upload:</label>
+      <input class="form-control" type="file" id="audioUpload" accept="audio/*">
+    </div>
+    
+    <!-- Tags Input -->
+    <div class="mb-3">
+      <label for="audioTags" class="form-label">Enter tags (comma-separated):</label>
+      <input class="form-control" type="text" id="audioTags" placeholder="e.g., podcast, interview, music">
+    </div>
+    
+    <!-- Submit Button -->
+    <button class="btn btn-primary" id="uploadBtn">Upload Audio</button>
+
+    <!-- Search Section -->
+    <h3 class="my-4">Search Audio by Tags</h3>
+    <div class="mb-3">
+      <input class="form-control" type="text" id="searchTags" placeholder="Search by tags (comma-separated)">
+    </div>
+    <button class="btn btn-secondary" id="searchBtn">Search</button>
+
+    <!-- Audio Display Section -->
+    <div id="audioGallery" class="row my-4"></div>
+  </div>
+
+  <script>
+    // Store uploaded audio files and their tags
+    let audioFiles = [];
+
+    // Upload Audio Event
+    document.getElementById('uploadBtn').addEventListener('click', function() {
+      const fileInput = document.getElementById('audioUpload');
+      const tagsInput = document.getElementById('audioTags').value.split(',').map(tag => tag.trim().toLowerCase());
+
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+          const audioSrc = e.target.result;
+
+          // Store audio file and associated tags
+          audioFiles.push({ src: audioSrc, tags: tagsInput });
+
+          // Display the audio file
+          displayAudio(audioSrc, tagsInput);
+        };
+        
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Display Audio in the Gallery
+    function displayAudio(src, tags) {
+      const gallery = document.getElementById('audioGallery');
+      const audioCard = document.createElement('div');
+      audioCard.classList.add('col-md-4', 'mb-4', 'audio-card');
+      
+      audioCard.innerHTML = `
+        <div class="card">
+          <audio controls>
+            <source src="${src}" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <div class="card-body">
+            <p class="card-text">Tags: ${tags.join(', ')}</p>
+          </div>
+        </div>
+      `;
+      gallery.appendChild(audioCard);
+    }
+
+    // Search Audio by Tags
+    document.getElementById('searchBtn').addEventListener('click', function() {
+      const searchTagsInput = document.getElementById('searchTags').value.split(',').map(tag => tag.trim().toLowerCase());
+      const gallery = document.getElementById('audioGallery');
+      gallery.innerHTML = ''; // Clear the gallery
+
+      // Filter audio files by matching tags
+      const filteredAudios = audioFiles.filter(audio => 
+        searchTagsInput.every(tag => audio.tags.includes(tag))
+      );
+
+      // Display filtered audio files
+      filteredAudios.forEach(audio => displayAudio(audio.src, audio.tags));
+    });
+  </script>
+<br>
+
+</body>
+</html>

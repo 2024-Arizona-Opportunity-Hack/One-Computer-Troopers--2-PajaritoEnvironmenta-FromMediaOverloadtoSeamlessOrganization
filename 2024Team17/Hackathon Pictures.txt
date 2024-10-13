@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pajarito Environmental Education Center Picture Submission</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Main column */
+.main {   
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width:100%;
+  }
+}
+ .photo-card img {
+      max-width: 100%;
+      height: auto;
+    }
+    .tag-list {
+      margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Pajarito Environmental Education Center</h1>
+  <p>A website created by the One Computer Troopers.</p>
+</div>
+
+<div class="navbar">
+  <a href="file:///C:/Users/reese/OneDrive/Documents/ITT%20-%20111%20RDP%20and%20Files/Hackathon%20Pics.html">Pictures</a>
+  <a href="file:///C:/Users/reese/OneDrive/Documents/ITT%20-%20111%20RDP%20and%20Files/Hackathon%20Audio.html">Audio</a>
+  <a href="file:///C:/Users/reese/OneDrive/Documents/ITT%20-%20111%20RDP%20and%20Files/Hackathon%202.html">Home</a>
+  <a href="#" class="right">Settings</a>
+</div>
+
+  <div class="main">
+     <div class="container">
+    <h2 class="my-4">Upload a Photo and Add Tags</h2>
+    
+    <!-- Photo Upload Section -->
+    <div class="mb-3">
+      <label for="photoUpload" class="form-label">Choose a photo to upload:</label>
+      <input class="form-control" type="file" id="photoUpload" accept="image/*">
+    </div>
+    
+    <!-- Tags Input -->
+    <div class="mb-3">
+      <label for="photoTags" class="form-label">Enter tags (comma-separated):</label>
+      <input class="form-control" type="text" id="photoTags" placeholder="e.g., nature, beach, sunset">
+    </div>
+    
+    <!-- Submit Button -->
+    <button class="btn btn-primary" id="uploadBtn">Upload Photo</button>
+
+    <!-- Search Section -->
+    <h3 class="my-4">Search Photos by Tags</h3>
+    <div class="mb-3">
+      <input class="form-control" type="text" id="searchTags" placeholder="Search by tags (comma-separated)">
+    </div>
+    <button class="btn btn-secondary" id="searchBtn">Search</button>
+
+    <!-- Photo Display Section -->
+    <div id="photoGallery" class="row my-4"></div>
+  </div>
+
+  <script>
+    // Store uploaded photos and their tags
+    let photos = [];
+
+    // Upload Photo Event
+    document.getElementById('uploadBtn').addEventListener('click', function() {
+      const fileInput = document.getElementById('photoUpload');
+      const tagsInput = document.getElementById('photoTags').value.split(',').map(tag => tag.trim().toLowerCase());
+
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+          const photoSrc = e.target.result;
+
+          // Store photo and associated tags
+          photos.push({ src: photoSrc, tags: tagsInput });
+
+          // Display the photo
+          displayPhoto(photoSrc, tagsInput);
+        };
+        
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Display Photo in the Gallery
+    function displayPhoto(src, tags) {
+      const gallery = document.getElementById('photoGallery');
+      const photoCard = document.createElement('div');
+      photoCard.classList.add('col-md-4', 'mb-4', 'photo-card');
+      
+      photoCard.innerHTML = `
+        <div class="card">
+          <img src="${src}" alt="Uploaded Photo" class="card-img-top">
+          <div class="card-body">
+            <p class="card-text">Tags: ${tags.join(', ')}</p>
+          </div>
+        </div>
+      `;
+      gallery.appendChild(photoCard);
+    }
+
+    // Search Photos by Tags
+    document.getElementById('searchBtn').addEventListener('click', function() {
+      const searchTagsInput = document.getElementById('searchTags').value.split(',').map(tag => tag.trim().toLowerCase());
+      const gallery = document.getElementById('photoGallery');
+      gallery.innerHTML = ''; // Clear the gallery
+
+      // Filter photos by matching tags
+      const filteredPhotos = photos.filter(photo => 
+        searchTagsInput.every(tag => photo.tags.includes(tag))
+      );
+
+      // Display filtered photos
+      filteredPhotos.forEach(photo => displayPhoto(photo.src, photo.tags));
+    });
+  </script>
+
+<br>
+</div>
+
+</body>
+</html>
