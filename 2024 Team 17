@@ -12,9 +12,8 @@
 
 ## Team "One-Computer-Troopers-#2"
 - [Team Member 1](GitHub profile link)
-- [Team Member 2](GitHub profile link)
-- [Team Member 3](GitHub profile link)
-<!-- Add all team members -->
+- [Dylan Jenkins](https://github.com/DjTitan120)
+
 
 ## Project Overview
 Brief description of your project and its goals.
@@ -48,21 +47,12 @@ npm start
 
 # What should your final Readme look like?
 Your readme should be a one-stop-shop for the judges to understand your project. It should include:
-- Team name
-- Team members
-- Slack channel
+- One Computer Troopers
+- Reese Melton, Dylan Jenkins
+- oct-team
 - Problem statement
 - Tech stack
-- Link to your DevPost project
-- Link to your final demo video
+- Devpost link: https://devpost.com/software/hackathon-2024-team-17
+- Demo Video: https://www.youtube.com/watch?v=ifOBC9Pb1Qc
 - Any other information you think is important
 
-You'll use this repo as your resume in the future, so make it shine! 🌟
-
-Examples of stellar readmes:
-- ✨ [2019 Team 3](https://github.com/2019-Arizona-Opportunity-Hack/Team-3)
-- ✨ [2019 Team 6](https://github.com/2019-Arizona-Opportunity-Hack/Team-6)
-- ✨ [2020 Team 2](https://github.com/2020-opportunity-hack/Team-02)
-- ✨ [2020 Team 4](https://github.com/2020-opportunity-hack/Team-04)
-- ✨ [2020 Team 8](https://github.com/2020-opportunity-hack/Team-08)
-- ✨ [2020 Team 12](https://github.com/2020-opportunity-hack/Team-12)
